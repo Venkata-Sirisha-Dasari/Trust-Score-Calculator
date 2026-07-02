@@ -1,0 +1,4 @@
+jsonschema>=4.17
+
+# Dev/test dependencies (optional):
+# pytest>=7.0

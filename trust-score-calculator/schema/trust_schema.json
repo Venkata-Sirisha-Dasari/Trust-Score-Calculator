@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrustScoreInput",
+  "description": "Validates the scores/weights payload accepted by TrustScoreCalculator.",
+  "type": "object",
+  "properties": {
+    "scores": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "enum": ["accuracy", "fairness", "privacy", "robustness", "safety", "transparency"]
+      },
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 1.0
+      }
+    },
+    "weights": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "enum": ["accuracy", "fairness", "privacy", "robustness", "safety", "transparency"]
+      },
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0.0
+      }
+    }
+  },
+  "required": ["scores", "weights"],
+  "additionalProperties": false
+}
